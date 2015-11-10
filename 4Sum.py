@@ -41,3 +41,31 @@ class Solution(object):
                 j += 1
 
         return res
+
+
+
+    def fourSum_1(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        from collections import defaultdict
+        res = set()
+        d = {}
+        nums.sort()
+        d = defaultdict(list)
+        for p in xrange(len(nums)):
+            for q in xrange(p + 1, len(nums)):
+                d[nums[p] + nums[q]].append([p, q])
+
+        for i in xrange(len(nums)):
+            for j in xrange(i + 1, len(nums) - 2):
+                temp = target - nums[i] - nums[j]
+
+                if temp in d:
+                    for item in d[temp]:
+                        if j < item[0]:
+                            res.add((nums[i], nums[j], nums[
+                                    item[0]], nums[item[1]]))
+        return [list(i) for i in res]
