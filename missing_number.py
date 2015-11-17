@@ -6,9 +6,8 @@ For example,
 Given nums = [0, 1, 3] return 2.
 '''
 class Solution(object):
-
-    def missingNumber_1(self, nums):
-       # Runtime: 104 ms
+    def missingNumber(self, nums):
+        # Runtime: 56 ms
         """
         :type nums: List[int]
         :rtype: int
@@ -16,11 +15,12 @@ class Solution(object):
         if not nums:
             return
 
-        nums.sort()
-        a = list(set(range(len(nums))) ^ set(nums))
-        return a[0] if a else nums[-1] + 1
+        length = len(nums)
+        sum_1 = (length + 1) * length / 2
+        sum_2 = sum(nums)
+        return sum_1 - sum_2
 
-    def missingNumber(self, nums):
+    def missingNumber_1(self, nums):
         # Runtime: 76 ms
         """
         :type nums: List[int]
@@ -40,16 +40,23 @@ class Solution(object):
                 return end + 1
         return sum_1 - sum_2
 
+    def missingNumber_2(self, nums):
+       # Runtime: 104 ms
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return
+
+        nums.sort()
+        a = list(set(range(len(nums))) ^ set(nums))
+        return a[0] if a else nums[-1] + 1
+
+
 print Solution().missingNumber([])
 print Solution().missingNumber([0])
 print Solution().missingNumber([0, 1])
 print Solution().missingNumber([1, 2])
 print Solution().missingNumber([0, 1, 3])
 print Solution().missingNumber([0, 2, 3])
-
-print Solution().missingNumber_1([])
-print Solution().missingNumber_1([0])
-print Solution().missingNumber_1([0, 1])
-print Solution().missingNumber_1([1, 2])
-print Solution().missingNumber_1([0, 1, 3])
-print Solution().missingNumber_1([0, 2, 3])
