@@ -5,6 +5,10 @@ class Solution(object):
         :rtype: str
         """
         return ' '.join([item.strip() for item in reversed(s.split())])
+        
+        
+    def reverseWords_1(self, s)
+        return ' '.join(reversed(s.split()))
 
 
 print Solution().reverseWords('')
