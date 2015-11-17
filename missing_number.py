@@ -12,9 +12,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if not nums:
-            return
-
         length = len(nums)
         sum_1 = (length + 1) * length / 2
         sum_2 = sum(nums)
@@ -46,9 +43,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if not nums:
-            return
-
         nums.sort()
         a = list(set(range(len(nums))) ^ set(nums))
         return a[0] if a else nums[-1] + 1
