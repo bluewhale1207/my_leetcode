@@ -9,6 +9,9 @@ class Solution(object):
         
     def reverseWords_1(self, s)
         return ' '.join(reversed(s.split()))
+        
+    def reverseWords_2(self, s):
+        return ' '.join(s.split()[::-1])
 
 
 print Solution().reverseWords('')
