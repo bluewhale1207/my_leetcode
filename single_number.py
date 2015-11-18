@@ -9,8 +9,19 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 class Solution(object):
     def singleNumber(self, nums):
+        # Runtime: 56 ms
         """
         :type nums: List[int]
         :rtype: int
         """
         return sum(set(nums)) * 2 - sum(nums) 
+
+    def singleNumber_1(self, nums):
+        # Runtime: 52 ms
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        import operator
+        return reduce(operator.xor, nums)
+        
