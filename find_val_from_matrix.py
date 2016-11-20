@@ -8,10 +8,6 @@ def func(arr, value):
     j = length - 1
 
     while True:
-        # print arr[i][j], value, j, i
-        # import time
-        # time.sleep(10)
-
         if arr[i][j] == value:
             return True
 
@@ -20,7 +16,6 @@ def func(arr, value):
 
         while i <= length -1 and arr[i][j] < value:
             i += 1
-
 
         if j < 0 or i > length -1:
             return False
