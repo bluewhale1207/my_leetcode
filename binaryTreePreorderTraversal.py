@@ -44,3 +44,23 @@ class Solution(object):
                 
         return res
 
+    def preorderTraversal_1(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        if not root:
+            return res
+
+        data = []
+        
+        while root or data:
+            if not root:
+                root = data.pop()
+            
+            res.append(root.val)
+            if root.right:
+                data.append(root.right)
+            root =  root.left
+        return res
